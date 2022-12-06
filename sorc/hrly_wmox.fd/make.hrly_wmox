@@ -1,0 +1,59 @@
+SHELL=/bin/sh
+#
+SRCS=	wmox.f afill.f datecnv8.f datecnv10.f \
+        ifill.f wmoevl.f wmozt.f
+
+OBJS=	wmox.o afill.o datecnv8.o datecnv10.o \
+        ifill.o wmoevl.o wmozt.o
+
+# Tunable parameters
+#
+# CF		Name of the fortran compiling system to use
+# LDFLAGS	Flags to the loader
+# LIBS		List of libraries
+# CMD		Name of the executable
+# PROFLIB	Library needed for profiling
+#
+#FC =            ncepxlf90
+#FC =            ncepxlf90 -C -O
+FC =           ifort 
+#BSM LDFLAGS =       -lessl -qsmp=noauto
+#BSM LDFLAGS =       -U -lessl -qsmp=noauto
+LDFLAGS = -qopenmp
+#LIBS =          -L/nwprod/lib -lip_8 -lw3nco_8 -lsp_8 -lbufr_8_64 -lbacio_8
+LIBS = -L${ip_ROOT}/lib -lip_8 -L${w3nco_ROOT}/lib -lw3nco_8 -L${sp_ROOT}/lib -lsp_8 -L${bufr_ROOT}/lib64 -lbufr_8 -L${bacio_ROOT}/lib -lbacio_8
+CMD =           hrly_wmox
+
+#BSM PROFLIB =       -lprof
+
+# To perform the default compilation, use the first line
+# To compile with flowtracing turned on, use the second line
+# To compile giving profile additonal information, use the third line
+# WARNING:  SIMULTANEOUSLY PROFILING AND FLOWTRACING IS NOT RECOMMENDED 
+FFLAGS =         -fixed -i8 -r8
+#FFLAGS =        -g -qfixed -qintsize=8 -qrealsize=8 -O -qmaxmem=-1 -qalign=4k
+#FFLAGS =        -qdbg -qcheck -qfixed -qintsize=8 -qrealsize=8 -O -qmaxmem=-1
+#FFLAGS =	 -F
+#FFLAGS =	 -Wf"-ez"
+
+# Lines from here on down should not need to be changed.  They are the
+# actual rules which make uses to build a.out.
+#
+all:		$(CMD)
+
+$(CMD):		$(OBJS)
+	$(FC) $(LDFLAGS) -o $(@) $(OBJS) $(LIBS)
+
+# Make the profiled version of the command and call it a.out.prof
+#
+$(CMD).prof:	$(OBJS)
+	$(FC) $(LDFLAGS) -o $(@) $(OBJS) $(PROFLIB) $(LIBS)
+
+clean:
+	-rm -f $(OBJS)
+
+clobber:	clean
+	-rm -f $(CMD) $(CMD).prof
+
+void:	clobber
+	-rm -f $(SRCS) makefile

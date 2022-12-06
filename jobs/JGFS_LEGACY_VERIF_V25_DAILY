@@ -1,0 +1,78 @@
+#!/bin/bash
+
+########################################
+# Preliminary data setup step
+########################################
+set -xa
+
+####################################
+# SET SHELL PROCESSING VARIABLES
+####################################
+export PS4='$SECONDS + '
+date
+
+###########################################################
+# obtain unique LSF id (jobid) and make temp directories
+###########################################################
+export pid=$$
+export DATA=${DATA:-${DATAROOT:?}/${jobid:?}}
+mkdir -p $DATA
+cd $DATA
+
+####################################
+# Determine Job Output Name on System
+####################################
+export pgmout="OUTPUT.${pid}"
+
+####################################
+# Set EVS directories
+####################################
+export HOMEgfs_legacy_verif_v25=${HOMEgfs_legacy_verif_v25:-${PACKAGEROOT}/gfs_legacy_verif_v25.${model_ver}}
+export EXECgfs_legacy_verif_v25=${EXECgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/exec}
+export FIXgfs_legacy_verif_v25=${FIXgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/fix}
+export PARMgfs_legacy_verif_v25=${PARMgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/parm}
+export USHgfs_legacy_verif_v25=${USHgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/ush}
+
+####################################
+# Run setpdy and initialize PDY variables
+####################################
+export cycle=${cycle:-t${cyc}z}
+setpdy.sh
+. ./PDY
+export VDATE=$PDYm1
+
+####################################
+# Define NET/RUN variables
+####################################
+export NET=${NET:-gfs_legacy_verif_v25}
+export RUN=${RUN:-daily}
+
+####################################
+# Define COMIN/COMOUT variables
+####################################
+export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMINgfs=${COMINgfs:-$(compath.py prod/gfs/$gfs_ver)}
+export COMINobsproc=${COMINobsproc:-$(compath.py prod/obsproc/$obsproc_ver)}
+export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+
+mkdir -p $COMOUT
+
+#######################################################################
+# Execute the script
+#######################################################################
+env
+
+$HOMEgfs_legacy_verif_v25/scripts/ex_gfs_legacy_verif_v25_daily.sh
+export err=$?; err_chk
+
+cat $pgmout
+
+msg="JOB $job HAS COMPLETED NORMALLY."
+postmsg "$jlogfile" "$msg"
+
+if [ "$KEEPDATA" != "YES" ] ; then
+  cd $DATAROOT
+  rm -rf $DATA
+fi
+
+date
