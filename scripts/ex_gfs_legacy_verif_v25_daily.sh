@@ -11,8 +11,8 @@ set -x
 ${USHgfs_legacy_verif_v25}/get_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
-    mkdir -p $COMOUT/output/curfv3gfs/gfs.${VDATE}
+    mkdir -p $COMOUTcurfv3gfs/gfs.${VDATE}
     for curfv3gfs_file in ${DATA}/output/curfv3gfs/gfs.${VDATE}/*; do
-        cp -pv $curfv3gfs_file $COMOUT/output/curfv3gfs/gfs.${VDATE}/.
+        cp -pv $curfv3gfs_file $COMOUTcurfv3gfs/gfs.${VDATE}/.
     done
 fi

@@ -51,11 +51,13 @@ export RUN=${RUN:-daily}
 # Define COMIN/COMOUT variables
 ####################################
 export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/output/curfv3gfs}
 export COMINgfs=${COMINgfs:-$(compath.py prod/gfs/$gfs_ver)}
 export COMINobsproc=${COMINobsproc:-$(compath.py prod/obsproc/$obsproc_ver)}
+export COMINukm=${COMINukm:-/lfs/h1/ops/prod/com/ukmet/${ukmet_ver}}
 export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
-
-mkdir -p $COMOUT
+export COMOUTcurfv3gfs=${COMOUTcurfv3gfs:-$COMOUT/output/curfv3gfs}
+mkdir -p $COMOUT $COMOUTcurfv3gfs
 
 #######################################################################
 # Execute the script
