@@ -26,7 +26,7 @@ mkdir -p $DATA_cqcht
 
 # Grab prod GFS data
 cd $DATA
-${USHgfs_legacy_verif_v25}/get_gfs_prod_data.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_get_gfs_prod_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     mkdir -p $COMOUTcurfv3gfs/gfs.${VDATE}
@@ -47,7 +47,7 @@ fi
 
 # Trim down GFS data
 cd $DATA
-${USHgfs_legacy_verif_v25}/trim_gfs_data.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_trim_gfs_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     for cyc in 00 12; do
@@ -68,7 +68,7 @@ fi
 # 3)   SUMAC4 - GENERATES DAILY STATS FOR DAILY SUMAC FILES
 #########################################################################
 echo "------------------------------------------------"
-echo "  Verification - Daily Statistics"
+echo "  Daily Verification - Statistics"
 echo "------------------------------------------------"
 ###############################################################
 # Daily forecast files for various models are used to         #
@@ -86,7 +86,7 @@ export VDATE_dd=`echo $VDATE | cut -c7-8`
 #             which are applied to Radiosonde data                   #
 ######################################################################
 cd ${DATA}
-${USHgfs_legacy_verif_v25}/compute_QCADP.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_compute_QCADP.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     cp -pv $DATA_SUMAC41/tosda_dat${VDATE_yy}${VDATE_mm}"."${VDATE_dd} $COMOUTverd_sumac4
@@ -104,7 +104,7 @@ fi
 #            SECTION 1                                      #
 #############################################################
 cd ${DATA}
-${USHgfs_legacy_verif_v25}/compute_SUMAC4.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_compute_SUMAC4.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     cp -pv $DATA_SUMAC41/dly${VDATE_yy}${VDATE_mm}.${VDATE_dd} $COMOUTverd_sumac4
@@ -120,7 +120,7 @@ fi
 #            This is known as the ANLVER portion         #
 ##########################################################
 cd ${DATA}
-${USHgfs_legacy_verif_v25}/compute_ANLVER.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_compute_ANLVER.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     for cyc in 00 12; do
@@ -156,7 +156,7 @@ fi
 #            This is known as the QCMON portion          #
 ##########################################################
 cd ${DATA}
-${USHgfs_legacy_verif_v25}/compute_QCMON.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_compute_QCMON.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     cp -pv $DATA_QCMON1/asraob${VDATE_mm}${VDATE_dd} $COMOUTverd_qcmon
@@ -184,7 +184,7 @@ fi
 #            files for 00z, 06z, 12z & 18z            #
 #######################################################
 cd ${DATA}
-${USHgfs_legacy_verif_v25}/compute_CQCHT.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_compute_CQCHT.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     for cyc in 00 06 12 18; do
