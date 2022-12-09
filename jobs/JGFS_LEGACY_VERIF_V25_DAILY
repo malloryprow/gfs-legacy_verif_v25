@@ -51,8 +51,8 @@ export RUN=${RUN:-daily}
 # Define COMIN/COMOUT variables
 ####################################
 export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
-export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/output/curfv3gfs}
-export COMINverf=${COMINverf:-$COMIN/output/verf}
+export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/curfv3gfs}
+export COMINverf=${COMINverf:-$COMIN/verf}
 export COMINverd=$COMINverf/verd.${VDATE}
 export COMINverd_anlver=$COMINverd/anlver
 export COMINverd_anlver_obs=$COMINverd_anlver/daily_obs
@@ -65,8 +65,8 @@ export COMINgfs=${COMINgfs:-$(compath.py prod/gfs/$gfs_ver)}
 export COMINobsproc=${COMINobsproc:-$(compath.py prod/obsproc/$obsproc_ver)}
 export COMINukm=${COMINukm:-/lfs/h1/ops/prod/com/ukmet/${ukmet_ver}}
 export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
-export COMOUTcurfv3gfs=${COMOUTcurfv3gfs:-$COMOUT/output/curfv3gfs}
-export COMOUTverf=${COMOUTverf:-$COMOUT/output/verf}
+export COMOUTcurfv3gfs=${COMOUTcurfv3gfs:-$COMOUT/curfv3gfs}
+export COMOUTverf=${COMOUTverf:-$COMOUT/verf}
 export COMOUTverd=$COMOUTverf/verd.${VDATE}
 export COMOUTverd_anlver=$COMOUTverd/anlver
 export COMOUTverd_anlver_obs=$COMOUTverd_anlver/daily_obs
@@ -91,6 +91,7 @@ cat $pgmout
 msg="JOB $job HAS COMPLETED NORMALLY."
 postmsg "$jlogfile" "$msg"
 
+KEEPDATA=${KEEPDATA:-NO}
 if [ "$KEEPDATA" != "YES" ] ; then
   cd $DATAROOT
   rm -rf $DATA

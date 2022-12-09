@@ -8,9 +8,9 @@
 set -x
 
 # Set up DATA directories
-export DATAcurfv3gfs_VDATE=$DATA/output/curfv3gfs/gfs.${VDATE}
+export DATAcurfv3gfs_VDATE=$DATA/curfv3gfs/gfs.${VDATE}
 mkdir -p $DATAcurfv3gfs_VDATE
-export DATAverd=$DATA/output/verf/verd.${VDATE}
+export DATAverd=$DATA/verf/verd.${VDATE}
 mkdir -p $DATAverd
 export DATA_GRIB=$DATAverd/grib
 mkdir -p $DATA_GRIB
