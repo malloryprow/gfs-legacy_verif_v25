@@ -40,8 +40,10 @@ export NET=gfs_legacy_verif_v25
 export RUN=daily
 export COMIN=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data
 export COMINcurfv3gfs=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/output/curfv3gfs
+export COMINverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/output/verf
 export COMOUT=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data
 export COMOUTcurfv3gfs=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/output/curfv3gfs
+export COMOUTverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/output/verf
 export SENDCOM=YES
 export KEEPDATA=YES
 

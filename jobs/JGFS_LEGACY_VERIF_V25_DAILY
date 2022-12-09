@@ -52,12 +52,31 @@ export RUN=${RUN:-daily}
 ####################################
 export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
 export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/output/curfv3gfs}
+export COMINverf=${COMINverf:-$COMIN/output/verf}
+export COMINverd=$COMINverf/verd.${VDATE}
+export COMINverd_anlver=$COMINverd/anlver
+export COMINverd_anlver_obs=$COMINverd_anlver/daily_obs
+export COMINverd_anlver_forecast=$COMINverd_anlver/daily_forecast
+export COMINverd_cqcht=$COMINverd/cqcht
+export COMINverd_grib=$COMINverd/grib
+export COMINverd_qcmon=$COMINverd/qcmon
+export COMINverd_sumac4=$COMINverd/sumac4
 export COMINgfs=${COMINgfs:-$(compath.py prod/gfs/$gfs_ver)}
 export COMINobsproc=${COMINobsproc:-$(compath.py prod/obsproc/$obsproc_ver)}
 export COMINukm=${COMINukm:-/lfs/h1/ops/prod/com/ukmet/${ukmet_ver}}
 export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
 export COMOUTcurfv3gfs=${COMOUTcurfv3gfs:-$COMOUT/output/curfv3gfs}
-mkdir -p $COMOUT $COMOUTcurfv3gfs
+export COMOUTverf=${COMOUTverf:-$COMOUT/output/verf}
+export COMOUTverd=$COMOUTverf/verd.${VDATE}
+export COMOUTverd_anlver=$COMOUTverd/anlver
+export COMOUTverd_anlver_obs=$COMOUTverd_anlver/daily_obs
+export COMOUTverd_anlver_forecast=$COMOUTverd_anlver/daily_forecast
+export COMOUTverd_cqcht=$COMOUTverd/cqcht
+export COMOUTverd_grib=$COMOUTverd/grib
+export COMOUTverd_qcmon=$COMOUTverd/qcmon
+export COMOUTverd_sumac4=$COMOUTverd/sumac4
+mkdir -p $COMOUT $COMOUTcurfv3gfs $COMOUTverf $COMOUTverd
+mkdir -p $COMOUTverd_anlver $COMOUTverd_anlver_obs $COMOUTverd_anlver_forecast $COMOUTverd_cqcht $COMOUTverd_grib $COMOUTverd_qcmon $COMOUTverd_sumac4
 
 #######################################################################
 # Execute the script
