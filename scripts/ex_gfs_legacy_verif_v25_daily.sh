@@ -24,9 +24,9 @@ mkdir -p $DATA_ANLVER_DATA1 $DATA_ANLVER_FCST1
 export DATA_cqcht=$DATAverd/cqcht
 mkdir -p $DATA_cqcht
 
-# Grab data
+# Grab prod GFS data
 cd $DATA
-${USHgfs_legacy_verif_v25}/get_data.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/get_gfs_prod_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     mkdir -p $COMOUTcurfv3gfs/gfs.${VDATE}
@@ -45,9 +45,9 @@ if [ $SENDCOM = YES ]; then
     done
 fi
 
-# Trim data
+# Trim down GFS data
 cd $DATA
-${USHgfs_legacy_verif_v25}/trim_data.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/trim_gfs_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     for cyc in 00 12; do
