@@ -25,6 +25,15 @@ cd $DATA
 export pgmout="OUTPUT.${pid}"
 
 ####################################
+# SENDECF  - Flag Events on ecflow
+# SENDCOM  - Copy Files From TMPDIR to $com
+# SENDDBN  - Sends stuff out, set to NO for testing
+####################################
+export SENDECF=${SENDECF:-YES}
+export SENDCOM=${SENDCOM:-YES}
+export SENDDBN=${SENDDBN:-NO}
+
+####################################
 # Set EVS directories
 ####################################
 export HOMEgfs_legacy_verif_v25=${HOMEgfs_legacy_verif_v25:-${PACKAGEROOT}/gfs_legacy_verif_v25.${model_ver}}
