@@ -26,7 +26,7 @@ mkdir -p $DATA_cqcht
 
 # Grab prod GFS data
 cd $DATA
-${USHgfs_legacy_verif_v25}/daily_get_gfs_prod_data.sh ${VDATE}
+${USHgfs_legacy_verif_v25}/daily_get_prod_gfs_data.sh ${VDATE}
 export err=$?; err_chk
 if [ $SENDCOM = YES ]; then
     mkdir -p $COMOUTcurfv3gfs/gfs.${VDATE}
