@@ -1,7 +1,7 @@
 #PBS -N jgfs_legacy_verif_v25_monthly
 #PBS -j oe
 #PBS -S /bin/bash
-#PBS -q dev
+#PBS -q dev_transfer
 #PBS -A VERF-DEV
 #PBS -l walltime=04:00:00
 #PBS -l place=shared,select=1:ncpus=1
