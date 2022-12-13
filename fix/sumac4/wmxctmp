@@ -1,0 +1,261 @@
+  MODEL=LRGN       AREA=          FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=0        
+  MODEL=LRGS       AREA=          FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=6        
+  MODEL=LRGX       AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=6        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=3 C=5        
+  MODEL=    F024   AREA=          FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=6        
+  MODEL=    F048   AREA=          FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=6        
+  MODEL=    F072   AREA=          FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=6        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=3 C=5        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=NHEM4WMO  FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=NHEM4WMO  FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=EUR96     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=EUR96     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF024   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF024   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF048   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF048   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=ASIA153   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGNF072   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGNF072   AREA=ASIA153   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF024   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF024   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF024   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF024   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF048   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF048   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF048   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF048   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF072   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF072   AREA=AUS24     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF072   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF072   AREA=AUS24     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF024   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF024   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF024   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF024   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF048   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF048   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF048   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF048   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF072   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF072   AREA=SH31      FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGSF072   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGSF072   AREA=SH31      FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF024   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF024   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF024   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF024   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF048   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF048   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF048   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF048   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF072   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF072   AREA=TROPICS   FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+  MODEL=LRGXF072   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   1       4   1       2   2       4   2       2   4             C=1        
+   4   5       2   6       4   6       2   7       4   7             C=0        
+  MODEL=LRGXF072   AREA=TROPICS   FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7        
+   2   9       4  10       2  11       4  11       2  12             C=1        
+   4  12       2  14       4  15                                     C=0        
+                                                                 P=1 C=9        

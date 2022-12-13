@@ -1,0 +1,332 @@
+                              xxxxxxxxx            
+                                                      
+                                SECTION 1:  RAWINSONDE                   
+                                List of suspect stations                 
+                                Experimental Procedure                   
+                                                      
+       Data Monitored:          All TEMPS and PILOTS, 00 & 12 UTC             
+                                                      
+       Standard of Comparison:  Global Data Assimilation System               
+                                Six-hour Forecast.                            
+                                                      
+       Geopotential Heights:    Units:  meters                                
+                                                      
+       Wind Vectors:            Units:  meters per second                     
+                                                      
+       Selection Criteria:      Number of reports greater than or equal to 10.
+                                                      
+                                Geopotential: Normalized Root-Mean-Square     
+                                              greater than or equal to 100    
+                                              meters, all levels 700-50hPa.   
+                                                      
+                                Wind Vector:  Root-Mean-Square greater than   
+                                              or equal to 14.5 mps, all levels.
+                                                      
+       Gross Error Limit:                                                     
+                                                      
+                   Level(hPa)    Geopotential    Wind Vector    Normalizing Constant      
+                                                      
+                     1000            100              35               ----                 
+                      850            100              35               ----             
+                      700            100              40               2.90              
+                      500            150              45               2.20              
+                      400            175              50               1.90              
+                      300            200              60               1.60              
+                      250            225              60               1.50              
+                      200            250              50               1.37              
+                      150            275              50               1.19              
+                      100            300              45               1.00              
+                       50            325              40               0.80              
+                                                      
+       Bias: Mean difference from assimilating forecast excluding gross errors
+ 
+       RMS:  Root-Mean-Square of differences from assimilating forecast excluding gross errors
+                                                      
+       # LEVELS >:  The number of levels exceeding the normalized root-mean-square value.     
+                                             
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                          xxxxxxxxx              
+                                                                              
+                                                      
+                                      SECTION 2:  AIRCRAFT                          
+                                                    
+                                                      
+       Data Monitored:   Aircraft, AMDAR/ASDAR, and ACARS
+                         temperature and wind reports, all report times.
+                         (RECCO reports are not included)             
+                                                      
+       Standard of Comparison:  Global Data Assimilation System               
+                                Six-hour Forecast.                            
+                                                                              
+       Selection Criteria: Number of reports greater than or equal to 10.
+                                                      
+       Gross Error Limit:  Wind - Forecast:  40mps, all levels.
+                           Temp - Forecast:  10 deg. C., all levels.     
+                                                      
+       RMS:  Root-Mean-Square of differences from assimilating forecast.          
+                                                      
+                                                                              
+             Table column headers: OBS is total number of observations
+              (excluding GRS, the number of gross error reports) and   
+             REJ is number of reports rejected by quality control.  Non-
+             gross REJ reports are included in the statistical calculation.
+                                                      
+                                                                              
+                                                  
+                                                                              
+                                                    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                              
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                      xxxxxxxxx            
+                                                                              
+                                                      
+                                SECTION 3:  SATELLITE WINDS                   
+                                                      
+                                                                              
+                                                      
+       Data Monitored:          All SATOBS, all report times.                 
+                                                      
+       Standard of Comparison:  Global Data Assimilation System               
+                                Six-hour Forecast.                            
+                                                      
+       Selection Criteria:      Number of reports greater than or equal to 10.       
+                                                      
+       Gross Error Limit:       Wind - Forecast:  60mps, all levels.          
+                                                      
+       Data Selected:           Layer:            1000-701hPa                 
+                                                   700-401hPa                 
+                                                   400-100hPa                 
+                                                      
+       Bias:                    Mean difference in wind speed (mps),          
+                                observation minus assimilating forecast.      
+                                                                              
+                                                      
+       RMS:                     Root-Mean-Square (mps) of differences from    
+                                assimilating forecast.                        
+                                                      
+                                                      
+                                                                              
+      
+       
+                                                                          
+                                                                              
+                                                      
+                                                                              
+               GRAPHS ONLY -- NO ELECTRONIC TRANSMISSIONS AVAILABLE
+                                                                              
+                                                      
+                                                      
+                                                                              
+
+
+
+                                                     
+ 
+                                                                              
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                         xxxxxxxxx           
+                                                                              
+                                                      
+                                SECTION 4:  SATELLITE TEMPERATURES            
+                                                      
+                                                      
+       Data Monitored:          All SATEMS, NOAA12, NOAA14                    
+                                    all report times, 240km resolution.       
+                                                      
+                                A:  Clear Path Retrievals                     
+                                B:  Cloudy Retrievals                         
+                                C:  Microwave Retrievals                      
+                                                      
+       Standard of Comparison:  Global Data Assimilation System               
+                                Six-hour Forecast.                            
+                                                      
+       Selection Criteria:      All SATEM sounding profiles over water.       
+                                                      
+       Gross Error Limit:       None.                                         
+                                                      
+       Data Selected:           Layer Thickness:   1000-850hPa                
+                                                    300-100hPa                
+                                                    100-50hPa*                
+                                                      
+       Bias:                    Mean difference in layer mean virtual temperature,         
+                                observation minus assimilating forecast.   
+                                                      
+                                                      
+       *  Temporary values, 50-30hPa planned.                                 
+                                                      
+                                                                              
+                                                      
+                                           *** DATA NOT AVAILABLE ***      
+                                       
+                                                                              
+           RETRIEVAL DATA WILL BE REPLACED BY RADIANCE DATA     
+                    BUT WILL NOT BE AVAILABLE ELECTRONICALLY.                          
+                  
+                                                      
+                                                                              
+                                                      
+                                                       
+                       
+                                                    
+                                                       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                  xxxxxxxxx           
+                                                       
+                                                                              
+                                                      
+                                SECTION 5: SURFACE MARINE REPORTS             
+                                                   
+                                                                              
+                                                      
+       Data Monitored:          Ship, CMAN, and Buoy reports, all times.      
+                                                      
+       Standard of Comparison:  Global Data Assimilation System or Aviation   
+                                Six-hour Forecast.                            
+                                Ship, CMAN, and Buoy History.                 
+                                                      
+       Selection Criteria:      Pressure:    20 or more reports.             
+                                             Absolute value of bias > 4 hPa. 
+                                             Standard deviation > 6 hPa.     
+ 
+                                Wind Speed:  20 or more reports.             
+                                             Abs. value of bias > 5 m/sec.   
+                                Wind Dir.:   20 or more reports.
+                                             Abs. value of bias > 30 deg.    
+                                             Standard deviation > 80 deg.    
+                                                 
+                                Sea Surface                                   
+                                Temperature: 20 or more reports.             
+                                             Absolute value of bias > 4.0 C. 
+                                             Standard Deviation > 6.0 C.     
+                                                                              
+                                Air                                           
+                                Temperature:  Same as SST                     
+   
+                                Number of                                     
+                                Gross Errors: > 25% of reports.               
+                                                      
+       Gross Error Limit:       Pressure:  15hPa                              
+                                Wind Speed: > 30 knots (15.45 m/sec).         
+                                Wind Direction: > 140 degrees.                
+                                Air Temperature: > 15.0 C.                    
+                                Sea Surface Temperature: > 15.0 C.            
+                   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                       xxxxxxxxx            
+                                                       
+                                                                              
+                                                      
+                                SECTION 6:  ASAP SHIP REPORTS                 
+                                                      
+                                                                              
+                                                      
+       Data Monitored:          All ASAP (Ship) reports, all times.           
+                                                      
+       Standard of Comparison:  Global Data Assimilation System               
+                                Six-hour Forecast.                            
+                                                      
+       Gross Error Limit:                                                     
+                                                      
+       Level(hPa)    Geopotential    Wind Vector    Normalizing Constant      
+                                                      
+          1000            100             35                ----              
+           850            100             35                ----              
+           700            100             40                2.90              
+           500            150             45                2.20              
+           400            175             50                1.90              
+           300            200             60                1.60              
+           250            225             60                1.50              
+           200            250             50                1.37              
+           150            275             50                1.19              
+           100            300             45                1.00              
+            50            325             40                0.80              
+                                                      
+                                                                              
+                                                                           
+

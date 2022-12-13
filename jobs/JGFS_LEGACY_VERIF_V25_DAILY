@@ -1,0 +1,109 @@
+#!/bin/bash
+
+########################################
+# Preliminary data setup step
+########################################
+set -xa
+
+####################################
+# SET SHELL PROCESSING VARIABLES
+####################################
+export PS4='$SECONDS + '
+date
+
+###########################################################
+# obtain unique LSF id (jobid) and make temp directories
+###########################################################
+export pid=$$
+export DATA=${DATA:-${DATAROOT:?}/${jobid:?}}
+mkdir -p $DATA
+cd $DATA
+
+####################################
+# Determine Job Output Name on System
+####################################
+export pgmout="OUTPUT.${pid}"
+
+####################################
+# SENDECF  - Flag Events on ecflow
+# SENDCOM  - Copy Files From TMPDIR to $com
+# SENDDBN  - Sends stuff out, set to NO for testing
+####################################
+export SENDECF=${SENDECF:-YES}
+export SENDCOM=${SENDCOM:-YES}
+export SENDDBN=${SENDDBN:-NO}
+
+####################################
+# Set EVS directories
+####################################
+export HOMEgfs_legacy_verif_v25=${HOMEgfs_legacy_verif_v25:-${PACKAGEROOT}/gfs_legacy_verif_v25.${model_ver}}
+export EXECgfs_legacy_verif_v25=${EXECgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/exec}
+export FIXgfs_legacy_verif_v25=${FIXgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/fix}
+export PARMgfs_legacy_verif_v25=${PARMgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/parm}
+export USHgfs_legacy_verif_v25=${USHgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/ush}
+
+####################################
+# Run setpdy and initialize PDY variables
+####################################
+export cycle=${cycle:-t${cyc}z}
+setpdy.sh
+. ./PDY
+export VDATE=${VDATE:-$PDYm1}
+
+####################################
+# Define NET/RUN variables
+####################################
+export NET=${NET:-gfs_legacy_verif_v25}
+export RUN=${RUN:-daily}
+
+####################################
+# Define COMIN/COMOUT variables
+####################################
+export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/curfv3gfs}
+export COMINverf=${COMINverf:-$COMIN/verf}
+export COMINverd=$COMINverf/verd.${VDATE}
+export COMINverd_anlver=$COMINverd/anlver
+export COMINverd_anlver_obs=$COMINverd_anlver/daily_obs
+export COMINverd_anlver_forecast=$COMINverd_anlver/daily_forecast
+export COMINverd_cqcht=$COMINverd/cqcht
+export COMINverd_grib=$COMINverd/grib
+export COMINverd_qcmon=$COMINverd/qcmon
+export COMINverd_sumac4=$COMINverd/sumac4
+export COMINgfs=${COMINgfs:-$(compath.py prod/gfs/$gfs_ver)}
+export COMINobsproc=${COMINobsproc:-$(compath.py prod/obsproc/$obsproc_ver)}
+export COMINukm=${COMINukm:-/lfs/h1/ops/prod/com/ukmet/${ukmet_ver}}
+export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMOUTcurfv3gfs=${COMOUTcurfv3gfs:-$COMOUT/curfv3gfs}
+export COMOUTverf=${COMOUTverf:-$COMOUT/verf}
+export COMOUTverd=$COMOUTverf/verd.${VDATE}
+export COMOUTverd_anlver=$COMOUTverd/anlver
+export COMOUTverd_anlver_obs=$COMOUTverd_anlver/daily_obs
+export COMOUTverd_anlver_forecast=$COMOUTverd_anlver/daily_forecast
+export COMOUTverd_cqcht=$COMOUTverd/cqcht
+export COMOUTverd_grib=$COMOUTverd/grib
+export COMOUTverd_qcmon=$COMOUTverd/qcmon
+export COMOUTverd_sumac4=$COMOUTverd/sumac4
+mkdir -p $COMOUT $COMOUTcurfv3gfs $COMOUTverf $COMOUTverd
+mkdir -p $COMOUTverd_anlver $COMOUTverd_anlver_obs $COMOUTverd_anlver_forecast $COMOUTverd_cqcht $COMOUTverd_grib $COMOUTverd_qcmon $COMOUTverd_sumac4
+
+#######################################################################
+# Execute the script
+#######################################################################
+env
+
+$HOMEgfs_legacy_verif_v25/scripts/ex_gfs_legacy_verif_v25_daily.sh
+export err=$?; err_chk
+
+cat $pgmout
+
+msg="JOB $job HAS COMPLETED NORMALLY."
+postmsg "$jlogfile" "$msg"
+
+KEEPDATA=${KEEPDATA:-NO}
+if [ "$KEEPDATA" != "YES" ] ; then
+  cd $DATAROOT
+  rm -rf $DATA
+fi
+
+date

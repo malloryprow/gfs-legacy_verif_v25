@@ -1,0 +1,145 @@
+#!/bin/bash
+
+########################################
+# Preliminary data setup step
+########################################
+set -xa
+
+####################################
+# SET SHELL PROCESSING VARIABLES
+####################################
+export PS4='$SECONDS + '
+date
+
+###########################################################
+# obtain unique LSF id (jobid) and make temp directories
+###########################################################
+export pid=$$
+export DATA=${DATA:-${DATAROOT:?}/${jobid:?}}
+mkdir -p $DATA
+cd $DATA
+
+####################################
+# Determine Job Output Name on System
+####################################
+export pgmout="OUTPUT.${pid}"
+
+####################################
+# Set EVS directories
+####################################
+export HOMEgfs_legacy_verif_v25=${HOMEgfs_legacy_verif_v25:-${PACKAGEROOT}/gfs_legacy_verif_v25.${model_ver}}
+export EXECgfs_legacy_verif_v25=${EXECgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/exec}
+export FIXgfs_legacy_verif_v25=${FIXgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/fix}
+export PARMgfs_legacy_verif_v25=${PARMgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/parm}
+export USHgfs_legacy_verif_v25=${USHgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/ush}
+
+####################################
+# Run setpdy and initialize PDY variables
+####################################
+export cycle=${cycle:-t${cyc}z}
+setpdy.sh
+. ./PDY
+export VDATE_YYYY=${VDATE_YYYY:-`echo $PDYm5 | cut -c1-4`}
+export VDATE_mm=${VDATE_mm:-`echo $PDYm5 | cut -c5-6`}
+export VDATE_yy=`echo $VDATE_YYYY | cut -c3-4`
+
+####################################
+# Define NET/RUN variables
+####################################
+export NET=${NET:-gfs_legacy_verif_v25}
+export RUN=${RUN:-monthly}
+
+####################################
+# SENDECF  - Flag Events on ecflow
+# SENDCOM  - Copy Files From TMPDIR to $com
+# SENDDBN  - Sends stuff out, set to NO for testing
+# SENDWEB  - Send to web server
+####################################
+export SENDECF=${SENDECF:-YES}
+export SENDCOM=${SENDCOM:-YES}
+export SENDDBN=${SENDDBN:-NO}
+export SENDWEB=${SENDWEB:-NO}
+
+####################################
+# Define COMIN/COMOUT variables
+####################################
+export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMINcurfv3gfs=${COMINcurfv3gfs:-$COMIN/curfv3gfs}
+export COMINverf=${COMINverf:-$COMIN/verf}
+export COMINverm=$COMINverf/verm
+export COMINverm_emcdatabase=$COMINverm/emc_database
+export COMINverm_emcdatabase_YYYYmm=$COMINverm_emcdatabase/${VDATE_YYYY}_${VDATE_mm}
+export COMINverm_anlverYYYY=$COMINverm/anlver_$VDATE_YYYY
+export COMINverm_anlverYYYY_inputdata=$COMINverm_anlverYYYY/input_data
+export COMINverm_anlverYYYY_wmoreports=$COMINverm_anlverYYYY/wmo_reports
+export COMINverm_cqchtYYYY=$COMINverm/cqcht_$VDATE_YYYY
+export COMINverm_cqchtYYYY_mm=$COMINverm_cqchtYYYY/cqcht_$VDATE_mm
+export COMINverm_cqchtYYYY_mm_inputdata=$COMINverm_cqchtYYYY_mm/input_data
+export COMINverm_cqchtYYYY_mm_cqchtreports=$COMINverm_cqchtYYYY_mm/cqcht_reports
+export COMINverm_qcmonYYYY=$COMINverm/qcmon_$VDATE_YYYY
+export COMINverm_qcmonYYYY_inputdata=$COMINverm_qcmonYYYY/input_data
+export COMINverm_qcmonYYYY_wmoreports=$COMINverm_qcmonYYYY/wmo_reports
+export COMINverm_s1YYYY=$COMINverm/s1_$VDATE_YYYY
+export COMINverm_sumac4YYYY=$COMINverm/sumac4_$VDATE_YYYY
+export COMINverm_sumac4YYYY_inputdata=$COMINverm_sumac4YYYY/input_data
+export COMINverm_sumac4YYYY_wmoreports=$COMINverm_sumac4YYYY/wmo_reports
+export COMINhistoricarch=$COMIN/historic_archive
+export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMOUTverf=${COMOUTverf:-$COMOUT/verf}
+export COMOUTverm=$COMOUTverf/verm
+export COMOUTverm_emcdatabase=$COMOUTverm/emc_database
+export COMOUTverm_emcdatabase_YYYYmm=$COMOUTverm_emcdatabase/${VDATE_YYYY}_${VDATE_mm}
+export COMOUTverm_anlverYYYY=$COMOUTverm/anlver_$VDATE_YYYY
+export COMOUTverm_anlverYYYY_inputdata=$COMOUTverm_anlverYYYY/input_data
+export COMOUTverm_anlverYYYY_wmoreports=$COMOUTverm_anlverYYYY/wmo_reports
+export COMOUTverm_cqchtYYYY=$COMOUTverm/cqcht_$VDATE_YYYY
+export COMOUTverm_cqchtYYYY_mm=$COMOUTverm_cqchtYYYY/cqcht_$VDATE_mm
+export COMOUTverm_cqchtYYYY_mm_inputdata=$COMOUTverm_cqchtYYYY_mm/input_data
+export COMOUTverm_cqchtYYYY_mm_cqchtreports=$COMOUTverm_cqchtYYYY_mm/cqcht_reports
+export COMOUTverm_qcmonYYYY=$COMOUTverm/qcmon_$VDATE_YYYY
+export COMOUTverm_qcmonYYYY_inputdata=$COMOUTverm_qcmonYYYY/input_data
+export COMOUTverm_qcmonYYYY_wmoreports=$COMOUTverm_qcmonYYYY/wmo_reports
+export COMOUTverm_s1YYYY=$COMOUTverm/s1_$VDATE_YYYY
+export COMOUTverm_sumac4YYYY=$COMOUTverm/sumac4_$VDATE_YYYY
+export COMOUTverm_sumac4YYYY_inputdata=$COMOUTverm_sumac4YYYY/input_data
+export COMOUTverm_sumac4YYYY_wmoreports=$COMOUTverm_sumac4YYYY/wmo_reports
+export COMOUThistoricarch=$COMOUT/historic_archive
+
+mkdir -p $COMOUT $COMOUTverm
+mkdir -p $COMOUTverm_emcdatabase $COMOUTverm_emcdatabase_YYYYmm
+mkdir -p $COMOUTverm_anlverYYYY $COMOUTverm_anlverYYYY_inputdata $COMOUTverm_anlverYYYY_wmoreports
+mkdir -p $COMOUTverm_cqchtYYYY $COMOUTverm_cqchtYYYY_mm $COMOUTverm_cqchtYYYY_mm_inputdata $COMOUTverm_cqchtYYYY_mm_cqchtreports
+mkdir -p $COMOUTverm_qcmonYYYY $COMOUTverm_qcmonYYYY_inputdata $COMOUTverm_qcmonYYYY_wmoreports
+mkdir -p $COMOUTverm_s1YYYY
+mkdir -p $COMOUTverm_sumac4YYYY $COMOUTverm_sumac4YYYY_inputdata $COMOUTverm_sumac4YYYY_inputdata $COMOUTverm_sumac4YYYY_wmoreports
+mkdir -p $COMOUThistoricarch
+
+####################################
+# Define web info variables
+####################################
+if [ $SENDWEB = YES ]; then
+    export WEBHOST=${WEBHOST:-"emcrzdm.ncep.noaa.gov"}
+    export WEBUSER=${WEBUSER:-$USER}
+    export WEBDIR=${WEBDIR:-/home/people/emc/www/htdocs/users/$WEBUSER}
+fi
+
+#######################################################################
+# Execute the script
+#######################################################################
+env
+
+$HOMEgfs_legacy_verif_v25/scripts/ex_gfs_legacy_verif_v25_monthly.sh
+export err=$?; err_chk
+
+cat $pgmout
+
+msg="JOB $job HAS COMPLETED NORMALLY."
+postmsg "$jlogfile" "$msg"
+
+KEEPDATA=${KEEPDATA:-NO}
+if [ "$KEEPDATA" != "YES" ] ; then
+  cd $DATAROOT
+  rm -rf $DATA
+fi
+
+date

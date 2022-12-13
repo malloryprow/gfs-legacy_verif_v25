@@ -1,0 +1,101 @@
+#!/bin/bash
+
+########################################
+# Preliminary data setup step
+########################################
+set -xa
+
+####################################
+# SET SHELL PROCESSING VARIABLES
+####################################
+export PS4='$SECONDS + '
+date
+
+###########################################################
+# obtain unique LSF id (jobid) and make temp directories
+###########################################################
+export pid=$$
+export DATA=${DATA:-${DATAROOT:?}/${jobid:?}}
+mkdir -p $DATA
+cd $DATA
+
+####################################
+# Determine Job Output Name on System
+####################################
+export pgmout="OUTPUT.${pid}"
+
+####################################
+# Set EVS directories
+####################################
+export HOMEgfs_legacy_verif_v25=${HOMEgfs_legacy_verif_v25:-${PACKAGEROOT}/gfs_legacy_verif_v25.${model_ver}}
+export EXECgfs_legacy_verif_v25=${EXECgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/exec}
+export FIXgfs_legacy_verif_v25=${FIXgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/fix}
+export PARMgfs_legacy_verif_v25=${PARMgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/parm}
+export USHgfs_legacy_verif_v25=${USHgfs_legacy_verif_v25:-$HOMEgfs_legacy_verif_v25/ush}
+
+####################################
+# Run setpdy and initialize PDY variables
+####################################
+export cycle=${cycle:-t${cyc}z}
+setpdy.sh
+. ./PDY
+export VDATE_YYYY=${VDATE_YYYY:-`echo $PDYm5 | cut -c1-4`}
+export VDATE_yy=`echo $VDATE_YYYY | cut -c3-4`
+
+####################################
+# Define NET/RUN variables
+####################################
+export NET=${NET:-gfs_legacy_verif_v25}
+export RUN=${RUN:-yearly}
+
+####################################
+# SENDECF  - Flag Events on ecflow
+# SENDCOM  - Copy Files From TMPDIR to $com
+# SENDDBN  - Sends stuff out, set to NO for testing
+# SENDWEB  - Send to web server
+####################################
+export SENDECF=${SENDECF:-YES}
+export SENDCOM=${SENDCOM:-YES}
+export SENDDBN=${SENDDBN:-NO}
+export SENDWEB=${SENDWEB:-NO}
+
+####################################
+# Define COMIN/COMOUT variables
+####################################
+export COMIN=${COMIN:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMINhistoricarch=$COMIN/historic_archive
+export COMOUT=${COMOUT:-$(compath.py -o $NET/$gfs_legacy_verif_v25_ver)}
+export COMOUThistoricarch=$COMOUT/historic_archive
+
+mkdir -p $COMOUT
+mkdir -p $COMOUThistoricarch
+
+####################################
+# Define web info variables
+####################################
+if [ $SENDWEB = YES ]; then
+    export WEBHOST=${WEBHOST:-"emcrzdm.ncep.noaa.gov"}
+    export WEBUSER=${WEBUSER:-$USER}
+    export WEBDIR=${WEBDIR:-/home/people/emc/www/htdocs/users/$WEBUSER}
+fi
+
+#######################################################################
+# Execute the script
+#######################################################################
+env
+
+$HOMEgfs_legacy_verif_v25/scripts/ex_gfs_legacy_verif_v25_yearly.sh
+export err=$?; err_chk
+
+cat $pgmout
+
+msg="JOB $job HAS COMPLETED NORMALLY."
+postmsg "$jlogfile" "$msg"
+
+KEEPDATA=${KEEPDATA:-NO}
+if [ "$KEEPDATA" != "YES" ] ; then
+  cd $DATAROOT
+  rm -rf $DATA
+fi
+
+date

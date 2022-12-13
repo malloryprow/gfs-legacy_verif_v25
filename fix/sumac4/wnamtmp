@@ -1,0 +1,87 @@
+  MODEL=REGL       AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD12 P=0 C=0
+  MODEL=REGLF012   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=3 C=5
+  MODEL=REGLF012   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF012   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF012   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF012   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF024   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF024   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF024   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF036   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF036   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF036   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF036   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF048   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF048   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF048   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF048   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF060   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF060   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF060   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF060   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF072   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF072   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF072   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF072   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF084   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF084   AREA=NA110     FD= YYYYMM0100  LD= YYYYMMDD00 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+  MODEL=REGLF084   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   1       4   1       2   2       4   2       2   4             C=1
+   4   5       2   6       4   6       2   7       4   7             C=0
+  MODEL=REGLF084   AREA=NA110     FD= YYYYMM0112  LD= YYYYMMDD12 P=7 C=7
+   2   9       4  10       2  11       4  11       2  12             C=1
+   4  12       2  14       4  15                                     C=0
+                                                                 P=1 C=9

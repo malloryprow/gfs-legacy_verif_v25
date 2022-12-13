@@ -1,0 +1,208 @@
+      SUBROUTINE WMOVZT (VDTA,WEIGHT,FCSTA,ANLIT,ANL,
+     1           IRGN,IHR,LMSL,NICR)
+C SUBPROGRAM:    WMOVZT
+C   PRGMMR: LILLY            ORG: NP12        DATE: 2007-07-22
+C
+C ABSTRACT: GRIDPOINT COMPUTATIONS OF:
+C      1. MEAN ERROR
+C      2. RMS ERROR               3. CORREL...HGT CHGS
+C      4. S1 SCORE (MX GRD)       5. S1 SCORE (TRU GRD)
+C     FOR NORTH AND SOUTH HEMISPHERES BETWEEN 20 AND 90 DEGS
+C      AND THE TROPICS BETWEEN 20 S AND 20 N.
+C
+C      NORTH AND SOUTH HEMISPHERES DO MSL, 500 AND 250MB
+C         HEIGHTS AND TEMPERATURES (EXCLUDE S1 CALC).
+C      TROPICS DO 850 AND 250MB HEIGHTS AND TEMPERATURES
+C         (EXCLUDE S1 CALC)
+C
+C      PASS ON FIELDS NH(1D) AND SH(1E....PT 1,1 IS AT
+C         OE,90S)...TROPIC FIELD STACK SO THAT (1,1) IS
+C         AT 0E,20S AND (1,17) AT 0E,20N.
+C         SET UP WEIGHT (COSINES) TO COINCIDE WITH FIELDS.
+C
+C PROGRAM HISTORY LOG:
+C 2007-07-22 STEVEN G. LILLY -- UPDATING SOURCE CODES
+C
+C USAGE:    CALL WMOVZT(VDTA,WEIGHT,FCSTA,ANLIT,ANL,
+C                       IRGN,IHR,LMSL,NICR)
+C
+C   INPUT ARGUMENT LIST:
+C
+C   OUTPUT ARGUMENT LIST:
+C
+C   SUBPROGRAM CALLED:
+C     LIBRARY:    (NONE)
+C
+C ATTRIBUTES:
+C   LANGUAGE: FORTRAN-90
+C   MACHINE:  IBM RS6000
+C
+C$$$
+C**********************************************************
+C     GRIDPOINT COMPUTATIONS OF:
+C      1. MEAN ERROR
+C      2. RMS ERROR               3. CORREL...HGT CHGS
+C      4. S1 SCORE (MX GRD)       5. S1 SCORE (TRU GRD)
+C     FOR NORTH AND SOUTH HEMISPHERES BETWEEN 20 AND 90 DEGS
+C      AND THE TROPICS BETWEEN 20 S AND 20 N.
+C
+C      NORTH AND SOUTH HEMISPHERES DO MSL, 500 AND 250MB
+C         HEIGHTS AND TEMPERATURES (EXCLUDE S1 CALC).
+C      TROPICS DO 850 AND 250MB HEIGHTS AND TEMPERATURES
+C         (EXCLUDE S1 CALC)
+C
+C      PASS ON FIELDS NH(1D) AND SH(1E....PT 1,1 IS AT
+C         OE,90S)...TROPIC FIELD STACK SO THAT (1,1) IS
+C         AT 0E,20S AND (1,17) AT 0E,20N.
+C         SET UP WEIGHT (COSINES) TO COINCIDE WITH FIELDS.
+C
+C**********************************************************
+C
+        DIMENSION VDTA(5,2),WEIGHT(37)
+        DIMENSION FCSTA(145,37),ANL(145,37),ANLIT(145,37)
+C
+        DATA LONB,LONE/ 1, 144/
+C
+        CALL AFILL(VDTA,5,2,1,999.9)
+C
+C.......DEFINE NUM POINTS ALONG EACH LATITUDE
+C.......       REGION LAT LIMITS (1=NH,2=SH,3=TROPICS)
+C
+C
+        IF(IRGN  .EQ.  1) THEN
+         L1 = 9
+         L2 = 37
+        ELSE
+         IF(IRGN  .EQ.  2) THEN
+          L1 = 1
+          L2 = 29
+         ELSE
+          L1 = 1
+          L2 = 17
+         ENDIF
+        ENDIF
+C
+C
+       DO 30 NVFCN = 1,NICR
+        ILODIF = (LONE-LONB)/NVFCN  +  1
+        FLODIF = ILODIF
+        ILADIF = (L2-L1)/NVFCN  + 1
+        IF(NVFCN  .EQ.  1) THEN
+         NPT1 = ILODIF * ILADIF
+        ELSE
+         NPT2 = ILODIF * ILADIF
+        ENDIF
+C
+C.......CALCULATE MEAN CHANGE OBSERVED AND FORECAST .....
+C
+        SFCHG= 0.
+        SACHG= 0.
+        SUMWGT = 0.
+C
+        DO 10 LAT = L1,L2,NVFCN
+          SFCG = 0.
+          SACG = 0.
+C
+          DO 12 LONG = 1,144,NVFCN
+           LON = LONG
+            FCHNG  = FCSTA(LON,LAT) - ANLIT(LON,LAT)
+            ACHNG  = ANL(LON,LAT)   - ANLIT(LON,LAT)
+            SFCG = SFCG + FCHNG
+            SACG = SACG + ACHNG
+  12      CONTINUE
+C
+          SFCHG = SFCHG + SFCG*WEIGHT(LAT)
+          SACHG = SACHG + SACG*WEIGHT(LAT)
+          SUMWGT=SUMWGT + WEIGHT(LAT)
+  10    CONTINUE
+          FCGB = (SFCHG/SUMWGT)/FLODIF
+          ACGB = (SACHG/SUMWGT)/FLODIF
+C
+C.......CALCULATE MEAN ERROR, RMS ERROR, CORRELATION COEFF
+C.......          CHANGES, S1 SCORES ......................
+C
+        SUMNMR = 0.
+        SUMDN1 = 0.
+        SUMDN2 = 0.
+        SUMER= 0.
+        SUMSQ= 0.
+        SERR = 0.
+        SGRD = 0.
+        STRU = 0.
+C
+        DO 20 LAT = L1,L2,NVFCN
+          SUME = 0.
+          SFACG= 0.
+          SFCG2= 0.
+          SACG2= 0.
+          SERX = 0.
+          SGRX = 0.
+          STRX = 0.
+          SERY = 0.
+          SGRY = 0.
+          STRY = 0.
+          SUMLAT=0.
+C
+          DO 22 LONG = LONB,LONE,NVFCN
+            LON = LONG
+              ERROR  = FCSTA(LON,LAT) - ANL(LON,LAT)
+              SUME   = SUME   + ERROR
+              SUMLAT = SUMLAT + ERROR*ERROR
+              FCHNG  = FCSTA(LON,LAT) - ANLIT(LON,LAT)
+              ACHNG  = ANL(LON,LAT)   - ANLIT(LON,LAT)
+              FCHNG  = FCHNG - FCGB
+              ACHNG  = ACHNG - ACGB
+              SFACG  = SFACG  + FCHNG*ACHNG
+              SFCG2  = SFCG2  + FCHNG*FCHNG
+              SACG2  = SACG2  + ACHNG*ACHNG
+C
+C.....NOTE...FOR S1,LONE IS AT 144 (DO GRAD TO 145)...
+              FG = FCSTA(LON+NVFCN,LAT) - FCSTA(LON,LAT)
+              AG = ANL(LON+NVFCN,LAT) - ANL(LON,LAT)
+              SERX = SERX + ABS(FG-AG)
+              SGRX = SGRX + AMAX1(ABS(FG),ABS(AG))
+              STRX = STRX + ABS(AG)
+C
+C
+            IF(LAT  .NE.  L2) THEN
+              FG = FCSTA(LON,LAT+NVFCN) - FCSTA(LON,LAT)
+              AG = ANL(LON,LAT+NVFCN) - ANL(LON,LAT)
+              SERY = SERY + ABS(FG-AG)
+              SGRY = SGRY + AMAX1(ABS(FG),ABS(AG))
+              STRY = STRY + ABS(AG)
+            ENDIF
+C
+  22      CONTINUE
+C
+          SUMER = SUMER + SUME*WEIGHT(LAT)
+          SUMSQ = SUMSQ + SUMLAT*WEIGHT(LAT)
+          SUMNMR = SUMNMR + SFACG*WEIGHT(LAT)
+          SUMDN1 = SUMDN1 + SFCG2*WEIGHT(LAT)
+          SUMDN2 = SUMDN2 + SACG2*WEIGHT(LAT)
+C
+          IF(LAT  .NE.  L2) THEN
+           WLATP1 = 0.5*(WEIGHT(LAT) + WEIGHT(LAT+NVFCN))
+          ELSE
+           WLATP1 = 0.0
+          ENDIF
+C
+          SERR  = SERR  + SERX*WEIGHT(LAT)  +
+     1            SERY*WLATP1
+          SGRD  = SGRD  + SGRX*WEIGHT(LAT)  +
+     1            SGRY*WLATP1
+          STRU  = STRU  + STRX*WEIGHT(LAT)  +
+     1            STRY*WLATP1
+C
+  20    CONTINUE
+C
+C
+        VDTA(1,NVFCN) = (SUMER/SUMWGT)/FLODIF
+        VDTA(2,NVFCN) = SQRT((SUMSQ/SUMWGT)/FLODIF)
+        VDTA(3,NVFCN) = 100.0*SUMNMR/SQRT(SUMDN1*SUMDN2)
+        VDTA(4,NVFCN) = 100.0*SERR/SGRD
+        VDTA(5,NVFCN) = 100.0*SERR/STRU
+C
+  30    CONTINUE
+C
+      RETURN
+      END
