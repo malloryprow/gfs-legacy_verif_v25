@@ -53,10 +53,12 @@ export RUN=${RUN:-monthly}
 # SENDECF  - Flag Events on ecflow
 # SENDCOM  - Copy Files From TMPDIR to $com
 # SENDDBN  - Sends stuff out, set to NO for testing
+# SENDWEB  - Send to web server
 ####################################
 export SENDECF=${SENDECF:-YES}
 export SENDCOM=${SENDCOM:-YES}
 export SENDDBN=${SENDDBN:-NO}
+export SENDWEB=${SENDWEB:-NO}
 
 ####################################
 # Define COMIN/COMOUT variables
@@ -111,6 +113,15 @@ mkdir -p $COMOUTverm_qcmonYYYY $COMOUTverm_qcmonYYYY_inputdata $COMOUTverm_qcmon
 mkdir -p $COMOUTverm_s1YYYY
 mkdir -p $COMOUTverm_sumac4YYYY $COMOUTverm_sumac4YYYY_inputdata $COMOUTverm_sumac4YYYY_inputdata $COMOUTverm_sumac4YYYY_wmoreports
 mkdir -p $COMOUThistoricarch
+
+####################################
+# Define web info variables
+####################################
+if [ $SENDWEB = YES ]; then
+    export WEBHOST=${WEBHOST:-"emcrzdm.ncep.noaa.gov"}
+    export WEBUSER=${WEBUSER:-$USER}
+    export WEBDIR=${WEBDIR:-/home/people/emc/www/htdocs/users/$WEBUSER}
+fi
 
 #######################################################################
 # Execute the script

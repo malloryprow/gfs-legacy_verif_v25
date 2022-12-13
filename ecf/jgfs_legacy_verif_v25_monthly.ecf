@@ -43,7 +43,12 @@ export COMINverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/verf
 export COMOUT=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data
 export COMOUTverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/verf
 export SENDCOM=YES
+export SENDWEB=YES
 export KEEPDATA=YES
+
+export WEBHOST="emcrzdm.ncep.noaa.gov"
+export WEBUSER="emc.vpppg"
+export WEBDIR=/home/people/emc/www/htdocs/users/verification/global/gfs/ops/s1
 
 export VDATE_YYYY=2022
 export VDATE_mm=11

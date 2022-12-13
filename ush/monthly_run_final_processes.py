@@ -20,17 +20,18 @@ else:
     VDATE_mm = sys.argv[2]
 
 # Read in environment variables
+hostname = os.environ['HOSTNAME']
+user = os.environ['USER']
 DATA = os.environ['DATA']
 COMINhistoricarch = os.environ['COMINhistoricarch']
 COMINcurfv3gfs = os.environ['COMINcurfv3gfs']
 COMINverf = os.environ['COMINverf']
 COMINverm = os.environ['COMINverm']
-
-# Set up web info
-web_home_dir_list = ['/home/people/emc/www/htdocs/users/'
-                     +'verification/global/gfs/ops/s1']
-webhost = 'emcrzdm.ncep.noaa.gov'
-webhostid = 'emc.vpppg'
+SENDWEB = os.environ['SENDWEB']
+if SENDWEB == 'YES':
+    WEBHOST = os.environ['WEBHOST']
+    WEBUSER = os.environ['WEBUSER']
+    WEBDIR = os.environ['WEBDIR']
 
 # Get month name
 month_name = (datetime.datetime.strptime(VDATE_YYYY+VDATE_mm, '%Y%m')\
@@ -46,7 +47,6 @@ mon_year_full_archive_dir = os.path.join(COMINhistoricarch, 'full_archive',
                                          month_abbrv+'_'+VDATE_YYYY[-2:])
 
 # Get dev machine
-hostname = os.environ['HOSTNAME']
 cactus_match = re.match(re.compile(r"^clogin[0-9]{2}$"), hostname)
 dogwood_match = re.match(re.compile(r"^dlogin[0-9]{2}$"), hostname)
 if cactus_match:
@@ -97,7 +97,7 @@ for COMINcurfv3gfs in COMINcurfv3gfs_list:
             < date_and_after_to_save):
         print("Removing directory "+COMINcurfv3gfs)
         os.system('rm -rf '+COMINcurfv3gfs)
-        os.system('ssh '+os.environ['USER']+'@'+dev_machine
+        os.system('ssh '+user+'@'+dev_machine
                   +'"rm -rf '+COMINcurfv3gfs+'"')
 verd_dir_list = glob.glob(COMINverf+'/verd.*')
 for verd_dir in verd_dir_list:
@@ -106,24 +106,28 @@ for verd_dir in verd_dir_list:
             < date_and_after_to_save):
         print("Removing directory "+verd_dir)
         os.system('rm -rf '+verd_dir)
-        os.system('ssh '+os.environ['USER']+'@'+dev_machine
+        os.system('ssh '+user+'@'+dev_machine
                   +' "rm -rf '+verd_dir+'"')
 
 # Send files to web
-for web_home_dir in web_home_dir_list:
+if SENDWEB == 'YES':
     sumac4_wmxrpt_file = os.path.join(COMINverm, 'sumac4_'+VDATE_YYYY,
                                       'wmo_reports', 
                                       'wmxrpt'+VDATE_mm.zfill(2))
-    sumac4_wmxrpt_web_dir = os.path.join(web_home_dir, 'gfs_data', VDATE_YYYY)
+    sumac4_wmxrpt_web_dir = os.path.join(WEBDIR, 's1', 'gfs_data', VDATE_YYYY)
+    os.system('    ssh -q -l '+WEBUSER+' '+WEBHOST
+              +' "mkdir -p '+sumac4_wmxrpt_web_dir+' "')
     print("Sending "+sumac4_wmxrpt_file+" to "+sumac4_wmxrpt_web_dir)
     os.system('scp '
               +sumac4_wmxrpt_file+' '
-              +webhostid+'@'+webhost+':'+sumac4_wmxrpt_web_dir+'/.')
+              +WEBUSER+'@'+WEBHOST+':'+sumac4_wmxrpt_web_dir+'/.')
     qcmon_qcmrp_file = os.path.join(COMINverm, 'qcmon_'+VDATE_YYYY,
                                     'wmo_reports',
                                     'qcmrpt'+VDATE_mm.zfill(2))
-    qcmon_qcmrp_web_dir =  os.path.join(web_home_dir, 'qcmon_data', VDATE_YYYY)
+    qcmon_qcmrp_web_dir =  os.path.join(WEBDIR, 's1', 'qcmon_data', VDATE_YYYY)
+    os.system('    ssh -q -l '+WEBUSER+' '+WEBHOST
+              +' "mkdir -p '+qcmon_qcmrp_web_dir+' "')
     print("Sending "+qcmon_qcmrp_file+" to "+qcmon_qcmrp_web_dir)
     os.system('scp '
               +qcmon_qcmrp_file+' '
-              +webhostid+'@'+webhost+':'+qcmon_qcmrp_web_dir+'/.')
+              +WEBUSER+'@'+WEBHOST+':'+qcmon_qcmrp_web_dir+'/.')
