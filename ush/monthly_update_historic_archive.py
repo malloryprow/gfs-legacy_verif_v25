@@ -12,8 +12,8 @@ if len(sys.argv) != 3:
           +os.path.basename(__file__)+" YYYY mm")
     sys.exit(1)
 else:
-    VDATE_YYYY = sys.argv[2]
-    VDATE_mm = sys.argv[3]
+    VDATE_YYYY = sys.argv[1]
+    VDATE_mm = sys.argv[2]
 
 # Read in environment variables
 DATA = os.environ['DATA']
@@ -105,8 +105,8 @@ month_data_fhr120_reg49 = (
 # Only keep record of the values for forecast hours
 # 36 and 72 and the files in the file are saved as
 # raw_score*10^1
-raw_score_fhr36_reg49 = str(int(month_data_fhr36_reg49) * 10**-1)
-raw_score_fhr72_reg49 = str(int(month_data_fhr72_reg49) * 10**-1)
+raw_score_fhr36_reg49 = str(round(int(month_data_fhr36_reg49) * 10**-1, 1))
+raw_score_fhr72_reg49 = str(round(int(month_data_fhr72_reg49) * 10**-1, 1))
 
 # Now write this to the monthly data archive file
 print(VDATE_YYYY+VDATE_mm.zfill(2)+', '

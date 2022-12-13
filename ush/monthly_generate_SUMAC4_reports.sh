@@ -58,6 +58,7 @@ cat $DATA_sumac4YYYY_wmoreports/wmxgfs$VDATE_mm >>$DATA_sumac4YYYY_wmoreports/wm
 #################################################
 mnames='LRG GFS UKM'
 # Variables to change for monthly stats....
+YYYY=$VDATE_YYYY
 M=$VDATE_mm
 D="01"
 H="00"

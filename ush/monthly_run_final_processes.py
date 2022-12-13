@@ -1,4 +1,5 @@
 import re
+import sys
 import os
 import datetime
 import pandas as pd
@@ -15,8 +16,8 @@ if len(sys.argv) != 3:
           +os.path.basename(__file__)+" YYYY mm")
     sys.exit(1)
 else:
-    VDATE_YYYY = sys.argv[2]
-    VDATE_mm = sys.argv[3]
+    VDATE_YYYY = sys.argv[1]
+    VDATE_mm = sys.argv[2]
 
 # Read in environment variables
 DATA = os.environ['DATA']
@@ -126,15 +127,3 @@ for web_home_dir in web_home_dir_list:
     os.system('scp '
               +qcmon_qcmrp_file+' '
               +webhostid+'@'+webhost+':'+qcmon_qcmrp_web_dir+'/.')
-    s1_yearly_graphic = os.path.join(COMINhistoricarch,
-                                     'historic_s1_yearly_scores.png')
-    s1_yearly_graphic_web_dir = os.path.join(web_home_dir, 'gfs_data',
-                                             'annual_plots')
-    print("Sending "+s1_yearly_graphic+" to "+s1_yearly_graphic_web_dir)
-    os.system('scp '
-              +s1_yearly_graphic+' '
-              +webhostid+'@'+webhost+':'+s1_yearly_graphic_web_dir+'/.')
-    os.system('scp '
-              +s1_yearly_graphic+' '
-              +webhostid+'@'+webhost+':'+s1_yearly_graphic_web_dir
-              +'/historic_s1_yearly_scores_'+VDATE_YYYY+'.png')

@@ -186,42 +186,42 @@ else
  cp $COMINverm_anlverYYYY_wmoreports/s2GFL500 $DATA_anlverYYYY_wmoreports
 fi
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s1GFSmsl | cat >> a1
-head -6 $DATA_anlverYYYY_wmoreports/s1max.GFS.${VDATE_mm} >> a1
+head -6 $DATA_anlverYYYY_inputdata/s1max.GFS.${VDATE_mm} >> a1
 rm -f $DATA_anlverYYYY_wmoreports/s1GFSmsl
 echo 'MONYR NN GFSMAX MSL 12-72HR  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' | cat >> a1
 cat a1 >> $DATA_anlverYYYY_wmoreports/s1GFSmsl
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s1GFS500 |cat >> b1
-tail -n -6 $DATA_anlverYYYY_wmoreports/s1max.GFS.${VDATE_mm} >> b1
+tail -n -6 $DATA_anlverYYYY_inputdata/s1max.GFS.${VDATE_mm} >> b1
 rm -f $DATA_anlverYYYY_wmoreports/s1GFS500
 echo 'MONYR NN GFSMAX 500 12-72HR  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' | cat >> b1
 cat b1 >> $DATA_anlverYYYY_wmoreports/s1GFS500
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s1GFLmsl |cat >> e1
-head -6 $DATA_anlverYYYY_wmoreports/s1max.GFL.${VDATE_mm} >> e1
+head -6 $DATA_anlverYYYY_inputdata/s1max.GFL.${VDATE_mm} >> e1
 rm -f $DATA_anlverYYYY_wmoreports/s1GFLmsl
 echo 'MONYR NN GFLMAX MSL 24-240HR (X24)  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33'|cat >> e1
 cat e1 >> $DATA_anlverYYYY_wmoreports/s1GFLmsl
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s1GFL500 |cat >> f1
-tail -n -6 $DATA_anlverYYYY_wmoreports/s1max.GFL.${VDATE_mm} >> f1
+tail -n -6 $DATA_anlverYYYY_inputdata/s1max.GFL.${VDATE_mm} >> f1
 rm -f $DATA_anlverYYYY_wmoreports/s1GFL500
 echo 'MONYR NN GFLMAX 500 24-240HR (X24)  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' |cat >> f1
 cat f1 >> $DATA_anlverYYYY_wmoreports/s1GFL500
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s2GFSmsl |cat >> a2
-head -6 $DATA_anlverYYYY_wmoreports/s1tru.GFS.${VDATE_mm} >> a2
+head -6 $DATA_anlverYYYY_inputdata/s1tru.GFS.${VDATE_mm} >> a2
 rm -f $DATA_anlverYYYY_wmoreports/s2GFSmsl
 echo 'MONYR NN GFSTRU MSL 12-72HR  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' | cat >> a2
 cat a2 >> $DATA_anlverYYYY_wmoreports/s2GFSmsl
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s2GFS500 |cat >> b2
-tail -n -6 $DATA_anlverYYYY_wmoreports/s1tru.GFS.${VDATE_mm} >> b2
+tail -n -6 $DATA_anlverYYYY_inputdata/s1tru.GFS.${VDATE_mm} >> b2
 rm -f $DATA_anlverYYYY_wmoreports/s2GFS500
 echo 'MONYR NN GFSTRU 500 12-72HR  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' | cat >> b2
 cat b2 >> $DATA_anlverYYYY_wmoreports/s2GFS500
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s2GFLmsl |cat >> e2
-head -6 $DATA_anlverYYYY_wmoreports/s1tru.GFL.${VDATE_mm} >> e2
+head -6 $DATA_anlverYYYY_inputdata/s1tru.GFL.${VDATE_mm} >> e2
 rm -f $DATA_anlverYYYY_wmoreports/s2GFLmsl
 echo 'MONYR NN GFLTRU MSL 24-240HR (X24)  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' |cat >> e2
 cat  e2 >> $DATA_anlverYYYY_wmoreports/s2GFLmsl
 grep -v "MONYR" $DATA_anlverYYYY_wmoreports/s2GFL500 |cat >> f2
-tail -n -6 $DATA_anlverYYYY_wmoreports/s1tru.GFL.${VDATE_mm} >> f2
+tail -n -6 $DATA_anlverYYYY_inputdata/s1tru.GFL.${VDATE_mm} >> f2
 rm -f $DATA_anlverYYYY_wmoreports/s2GFL500
 echo 'MONYR NN GFLTRU 500 24-240HR (X24)  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33' |cat >> f2
 cat f2 >> $DATA_anlverYYYY_wmoreports/s2GFL500
@@ -230,7 +230,7 @@ cat f2 >> $DATA_anlverYYYY_wmoreports/s2GFL500
 # Saving the monthly s1max.GFS and s1max.NAM 36hr and 72hr S1 scores for skill's report  #
 ##########################################################################################
 echo "GFS" | cat >> s1gfs
-tail -n -4 $COMINverm_anlverYYYY_inputdata/s1max.GFS.${VDATE_mm} >> s1gfs
+tail -n -4 $DATA_anlverYYYY_inputdata/s1max.GFS.${VDATE_mm} >> s1gfs
 model_list=" s1gfs "
 for mfile in $model_list
  do
@@ -242,6 +242,11 @@ for mfile in $model_list
    #################
    export FORT10="gfs"
    export FORT50="$MODEL"
+   #################
+   # output files  #
+   #################
+   export FORT30="$S136"
+   export FORT40="$S172"
    $EXECgfs_legacy_verif_v25/verf_gets1scores 1>output 2>gets1.err
    #export err=$?; err_chk
    if [ -f $COMINverm_s1YYYY/${mfile}"36500" ]; then

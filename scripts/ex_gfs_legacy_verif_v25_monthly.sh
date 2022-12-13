@@ -250,5 +250,5 @@ echo "------------------------------------------------"
 echo "  Monthly Verification - Final Processing"
 echo "------------------------------------------------"
 cd $DATA
-python ${USHgfs_legacy_verif_v25}/monthly_final_processes.py ${VDATE_YYYY} ${VDATE_mm}
+python ${USHgfs_legacy_verif_v25}/monthly_run_final_processes.py ${VDATE_YYYY} ${VDATE_mm}
 export err=$?; err_chk
