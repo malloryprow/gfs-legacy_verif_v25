@@ -1,0 +1,4 @@
+   -1          PRINT ALL ERROR TYPES
+    0          END OF ERROR TYPES
+  100          ALL WMO BLOCKS, (otherwise, use block nos.)
+    0

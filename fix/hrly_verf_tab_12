@@ -1,0 +1,161 @@
+                                                                                
+TAB12: MESSAGES ON RUN TYPE, VALID TIMES AND AREAS OF FORECASTS TO BE VERIFIED  
+Note : 'T'---Denotes doing verification; 'F'---Denotes not doing verification.  
+------------------------------------------------------------------------------  
+                                                                                
+run type       =LRG  no. of valid times =11 no of areas =14
+valid times    =F000 F024 F048 F072 F096 F120 F144 F168 F192 F216 F240
+area=NHEM4WMO N T    T    T    T    T    T    T    T    T    T    T
+area=NH102    N T    T    T    T    T    T    T    T    T    T    T
+area=ALA23    N T    T    T    T    T    T    T    T    T    T    T
+area=NA110    N T    T    T    T    T    T    T    T    T    T    T
+area=WNA37    N T    T    T    T    T    T    T    T    T    T    T
+area=ENA73    N T    T    T    T    T    T    T    T    T    T    T
+area=EUR96    N T    T    T    T    T    T    T    T    T    T    T
+area=ASIA153  N T    T    T    T    T    T    T    T    T    T    T
+area=SH31     S T    T    T    T    T    T    T    T    T    T    T
+area=AUS24    S T    T    T    T    T    T    T    T    T    T    T
+area=SPA22    S T    T    T    T    T    T    T    T    T    T    T
+area=SAM30    S T    T    T    T    T    T    T    T    T    T    T
+area=SAF20    S T    T    T    T    T    T    T    T    T    T    T
+area=TROPICS  X T    T    T    T    T    T    T    T    T    T    T
+run type       =LRG2 no. of valid times =12 no of areas =14
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072 F084 F096 F108 F120
+area=NHEM4WMO N T    T    T    T    T    T    T    T    T    T    T    T
+area=NH102    N T    T    T    T    T    T    T    T    T    T    T    T
+area=ALA23    N T    T    T    T    T    T    T    T    T    T    T    T
+area=NA110    N T    T    T    T    T    T    T    T    T    T    T    T
+area=WNA37    N T    T    T    T    T    T    T    T    T    T    T    T
+area=ENA73    N T    T    T    T    T    T    T    T    T    T    T    T
+area=EUR96    N T    T    T    T    T    T    T    T    T    T    T    T
+area=ASIA153  N T    T    T    T    T    T    T    T    T    T    T    T
+area=SH31     S T    T    T    T    T    T    T    T    T    T    T    T
+area=AUS24    S T    T    T    T    T    T    T    T    T    T    T    T
+area=SPA22    S T    T    T    T    T    T    T    T    T    T    T    T
+area=SAM30    S T    T    T    T    T    T    T    T    T    T    T    T
+area=SAF20    S T    T    T    T    T    T    T    T    T    T    T    T
+area=TROPICS  X T    T    T    T    T    T    T    T    T    T    T    T
+run type       =PERS no. of valid times = 9 no of areas =14
+valid times    =F024 F048 F072 F096 F120 F144 F168 F192 F216
+area=NHEM4WMO N T    F    F    F    F    F    F    F    F
+area=NH102    N T    F    F    F    F    F    F    F    F
+area=ALA23    N T    F    F    F    F    F    F    F    F
+area=NA110    N T    F    F    F    F    F    F    F    F
+area=WNA37    N T    F    F    F    F    F    F    F    F
+area=ENA73    N T    F    F    F    F    F    F    F    F
+area=EUR96    N T    F    F    F    F    F    F    F    F
+area=ASIA153  N T    F    F    F    F    F    F    F    F
+area=SH31     S T    F    F    F    F    F    F    F    F
+area=AUS24    S T    F    F    F    F    F    F    F    F
+area=SPA22    S T    F    F    F    F    F    F    F    F
+area=SAM30    S T    F    F    F    F    F    F    F    F
+area=SAF20    S T    F    F    F    F    F    F    F    F
+area=TROPICS  X T    F    F    F    F    F    F    F    F
+run type       =UKM  no. of valid times =14 no of areas =14
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072 F084 F096 F108 F120 F132 F144
+area=NHEM4WMO X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=NH102    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=ALA23    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=NA110    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=WNA37    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=ENA73    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=EUR96    X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=ASIA153  X F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=SH31     S F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=AUS24    S F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=SPA22    S F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=SAM30    S F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=SAF20    S F    T    T    T    T    T    T    T    F    T    F    T    F    T
+area=TROPICS  O F    T    T    T    T    T    T    T    F    T    F    T    F    T
+run type       =GFS  no. of valid times = 9 no of areas =14
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072 F084
+area=NHEM4WMO N T    T    T    T    T    T    T    T    T   
+area=NH102    N T    T    T    T    T    T    T    T    T   
+area=ALA23    N T    T    T    T    T    T    T    T    T   
+area=NA110    N T    T    T    T    T    T    T    T    T   
+area=WNA37    N T    T    T    T    T    T    T    T    T   
+area=ENA73    N T    T    T    T    T    T    T    T    T   
+area=EUR96    N T    T    T    T    T    T    T    T    T   
+area=ASIA153  N T    T    T    T    T    T    T    T    T   
+area=SH31     S T    T    T    T    T    T    T    T    T   
+area=AUS24    S T    T    T    T    T    T    T    T    T   
+area=SPA22    S T    T    T    T    T    T    T    T    T   
+area=SAM30    S T    T    T    T    T    T    T    T    T   
+area=SAF20    S T    T    T    T    T    T    T    T    T   
+area=TROPICS  X T    T    T    T    T    T    T    T    T   
+run type       =REGL no. of valid times = 9 no of areas = 6
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072 F084
+area=NH102    L F    F    F    F    F    F    F    F    F
+area=ALA23    L T    T    T    T    T    T    T    T    T
+area=NA110    L T    T    T    T    T    T    T    T    T
+area=WNA37    L T    T    T    T    T    T    T    T    T
+area=ENA73    L T    T    T    T    T    T    T    T    T
+area=GALE15   L T    T    T    T    T    T    T    T    T
+run type       =RAFS no. of valid times = 6 no of areas = 6
+valid times    =ANAL F000 F012 F024 F036 F048
+area=NH102    S F    F    F    F    F    F
+area=ALA23    S T    T    T    T    T    T
+area=NA110    S T    T    T    T    T    T
+area=WNA37    S T    T    T    T    T    T
+area=ENA73    S T    T    T    T    T    T
+area=GALE15   S T    T    T    T    T    T
+run type       =DAS  no. of valid times = 3 no of areas = 6
+valid times    =ANAL F000 F006
+area=NH102    N F    T    T
+area=NA110    N F    T    T
+area=WNA37    N F    T    T
+area=ENA73    N F    T    T
+area=EUR96    N F    T    T
+area=SH31     S F    T    T
+run type       =ECM  no. of valid times =14 no of areas =14
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072 F084 F096 F108 F120 F132 F144
+area=NHEM4WMO N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=NH102    N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=ALA23    N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=NA110    N F    T    F    T    F    T    F    T    F    T    F    T    F    T
+area=WNA37    N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=ENA73    N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=EUR96    N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=ASIA153  N F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=SH31     S F    T    F    T    F    T    F    T    F    T    F    T    F    T
+area=AUS24    S F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=SPA22    S F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=SAM30    S F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=SAF20    S F    F    F    F    F    F    F    F    F    F    F    F    F    F
+area=TROPICS  X F    T    F    T    F    T    F    T    F    T    F    F    F    F
+run type       =UKM1 no. of valid times = 8 no of areas = 7
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072
+area=NHEM4WMO 1 F    F    F    T    T    F    F    F
+area=NH102    1 F    F    F    T    T    F    F    F
+area=NA110    1 F    F    F    T    T    F    F    F
+area=EUR96    1 F    F    F    F    F    F    F    F
+area=ASIA153  1 F    F    F    F    F    F    F    F
+area=SH31     1 F    F    F    F    F    F    F    F
+area=TROPICS  1 F    F    F    F    F    F    F    F
+run type       =UKM2 no. of valid times = 8 no of areas = 7
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072
+area=NHEM4WMO 2 F    F    F    T    T    F    F    F
+area=NH102    2 F    F    F    T    T    F    F    F
+area=NA110    2 F    F    F    T    T    F    F    F
+area=EUR96    2 F    F    F    F    F    F    F    F
+area=ASIA153  2 F    F    F    F    F    F    F    F
+area=SH31     2 F    F    F    F    F    F    F    F
+area=TROPICS  2 F    F    F    F    F    F    F    F
+run type       =GFS1 no. of valid times = 8 no of areas = 7
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072
+area=NHEM4WMO 1 F    F    F    T    T    F    F    F
+area=NH102    1 F    F    F    T    T    F    F    F
+area=NA110    1 F    F    F    T    T    F    F    F
+area=EUR96    1 F    F    F    F    F    F    F    F
+area=ASIA153  1 F    F    F    F    F    F    F    F
+area=SH31     1 F    F    F    F    F    F    F    F
+area=TROPICS  1 F    F    F    F    F    F    F    F
+run type       =GFS2 no. of valid times = 8 no of areas = 7
+valid times    =ANAL F000 F012 F024 F036 F048 F060 F072
+area=NHEM4WMO 2 F    F    F    T    T    F    F    F
+area=NH102    2 F    F    F    T    T    F    F    F
+area=NA110    2 F    F    F    T    T    F    F    F
+area=EUR96    2 F    F    F    F    F    F    F    F
+area=ASIA153  2 F    F    F    F    F    F    F    F
+area=SH31     2 F    F    F    F    F    F    F    F
+area=TROPICS  2 F    F    F    F    F    F    F    F
