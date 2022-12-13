@@ -10,7 +10,7 @@
 
 set -x
 
-#cd $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
 
 export model=gfs_legacy_verif_v25
 
@@ -44,13 +44,13 @@ export COMOUT=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data
 export COMOUTverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/verf
 export SENDCOM=YES
 export SENDWEB=YES
-export KEEPDATA=YES
+export KEEPDATA=NO
 
 export WEBHOST="emcrzdm.ncep.noaa.gov"
-export WEBUSER="emc.vpppg"
-export WEBDIR=/home/people/emc/www/htdocs/users/verification/global/gfs/ops/s1
+export WEBUSER=$USER
+export WEBDIR=/home/people/emc/www/htdocs/users/$USER
 
-export VDATE_YYYY=2021
+export VDATE_YYYY=$(date -d "1 year ago" '+%Y')
 
 $HOMEgfs_legacy_verif_v25/jobs/JGFS_LEGACY_VERIF_V25_YEARLY
 

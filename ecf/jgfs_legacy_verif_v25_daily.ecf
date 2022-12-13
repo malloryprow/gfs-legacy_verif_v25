@@ -10,7 +10,7 @@
 
 set -x
 
-#cd $PBS_O_WORKDIR
+cd $PBS_O_WORKDIR
 
 export model=gfs_legacy_verif_v25
 
@@ -45,7 +45,9 @@ export COMOUT=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data
 export COMOUTcurfv3gfs=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/curfv3gfs
 export COMOUTverf=/lfs/h2/emc/vpppg/save/$USER/legacy_verif_v25_data/verf
 export SENDCOM=YES
-export KEEPDATA=YES
+export KEEPDATA=NO
+
+export VDATE=$(date -d "24 hours ago" '+%Y%m%d')
 
 $HOMEgfs_legacy_verif_v25/jobs/JGFS_LEGACY_VERIF_V25_DAILY
 
