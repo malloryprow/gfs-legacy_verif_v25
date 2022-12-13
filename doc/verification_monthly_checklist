@@ -1,0 +1,88 @@
+1. Update PDY in script "monthly_s1"  (found in .../jobs) as follows: 
+   PDY=$YYYY$mm"02"  ( 02 is the second day of each month ( never changes )
+       $YYYY - 4 digits ie: 2019, 2020
+       $dd - 2 digits month ( it is always the current month to generate last months stat )
+
+             ie: if you want to generate stats for Nov 2019 - then on the 2nd day of Dec 2019;
+	     Execute monthly_s1 script using PDY set to PDY=20191202
+
+	     if you want to generate stats for Dec 2019 - then on the 2nd day of Jan 2020;
+	     Execute monthly_s1 script using PDY set to PDY=20200102
+
+	     if you want to generate stats for Jan 2020 - then on the 2nd day of Feb 2020;
+	     Execute monthly_s1 script using PDY set to 20200202  ( and so on...)
+
+
+2. Now that PDY in script "monthly_s1" (../jobs) has been set to 1. current month  for generating
+   the previous month WMO Verification Monthly Reports 
+
+            RUN monthly_s1
+
+
+3. The output will be found (for the webpage):  $COMOUT/verf/verm: directories sumac4_$YYYY;
+                                                                               qcmon_$YYYY; and
+                                                                               anlver_$YYYY
+
+
+   A. FIles require for updating the webpage monthly WMC Reports:
+
+      .../sumac4_$YYYY/wmo_reports: move wmxrpt$mm into webpage file: gfs_data/$YYYY
+          update webpage file: gfs_model_forecasts.php to read the month (follow
+	  the pattern as listed in the file) 
+
+
+     .../qcmon_$YYYY/wmo_reports: move qcmrpt$mm into webpage file: qcmon_data/$YYYY
+         update webpage file: ncep_quality_monitoring_reports.php to read the month
+	 (follow the pattern as listed in the file)
+
+
+
+   B. Updating the file s1_scores (ANNUAl S1_SCORES)
+
+    .../anlver_$YYYY/wmo_reports: using only s1GFS500 file (each month) to obtain the 
+                                  36hr and 72hr 500mb height data for na110 area.
+				  This data (12 months avg) will be needed for generatin
+				  the s1_scores.pdf ( display on the webpage ).
+
+				  To obtain the 36hr and 72hr 500mb height data from
+				  s1GFS500 file each month, do the following:
+
+				  The data will be display in the following form:
+
+				     1  GFS  500MB 11 2019 60
+				          54  41  46  37  41  50  58  66  53  83  65  72  59  65  85  87  98  80
+                                        |          12HR                     |           24HR                    |
+
+         
+					 111  92  99  86  91 123 116 129 107 140 120 129 113 119 173 146 162 135
+					|          36HR                     |           48HR                     |
+
+					 176 152 163 141 149 202 181 199 168 210 185 199 171 180 245 215 235 198
+					|          60HR                     |           72HR                    |
+
+					 248 224 238 209 217 292 248 270 231 288 260 271 248 253 310 284 305 268
+					 329 298 302 291 292 345 320 336 309 361 334 328 333 329 372 350 359 344
+                                 MONYR NN GFSMAX 500 12-72HR  GBL,59,W33,E33,49,RGNAR1,LL59,LLW33,LLE33
+
+				 The last line (MONYR...) indicates this data is the 500mb for 12-72HR for 9 regions of
+				 interest. ie; 1. GBL, 2. 59; 3. W33; 4. E33; 5. 49; 6. RGNAR1; 7. LL59; 8. LLW33; and,
+				 9. LLE33 (of NORTH AMERICA).   Hence, the 18 on the first line; the first 9 data points correspond to 12HR.
+				 The next 9 data points correpond to 24HR.
+
+				 So, line 1 is the 12hr and 24hr 
+				     line 2 is the 36hr and 48hr
+				     line 3 is the 60hr and 72hr 
+				     line 4 is the 84hr and 96hr
+
+
+				 Now, we only plot the 5th point (49).  So, for NOV. 2019 the 36HR data value will be 9.1 (values have 1 sig. digit) 
+				                                        counting 5 over from the begining of line 2.
+
+									                       72HR data value will be 18.0 counting 5 back from line 3.
+
+
+								        (Note: doesn't matter whether you count "Forward" or "Backward" as long as you are
+									within the time frame.)
+
+
+      YOU ARE FINISH WITH THE MONTHLY STATS!!!!!!!
