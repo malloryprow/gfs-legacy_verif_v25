@@ -33,10 +33,14 @@ monthly_rawdata_filename = os.path.join(
 )
 
 # Read s1GFS500 contents to find line header with our matching month and year
+if VDATE_mm[0] == '0':
+    VDATE_mm_file = VDATE_mm[1:]
+else:
+    VDATE_mm_file = VDATE_mm
 with open(s1GFS500_filename) as f:
     s1GFS500_data = f.readlines()
 for line in range(len(s1GFS500_data)):
-    if VDATE_mm+' '+VDATE_YYYY in s1GFS500_data[line]:
+    if VDATE_mm_file+' '+VDATE_YYYY in s1GFS500_data[line]:
         break
 # Now get the data for that month
 # Note: After matching header line, the next 5 lines
