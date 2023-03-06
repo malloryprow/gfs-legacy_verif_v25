@@ -98,7 +98,7 @@ for COMINcurfv3gfs in COMINcurfv3gfs_list:
         print("Removing directory "+COMINcurfv3gfs)
         os.system('rm -rf '+COMINcurfv3gfs)
         os.system('ssh '+user+'@'+dev_machine
-                  +'"rm -rf '+COMINcurfv3gfs+'"')
+                  +' "rm -rf '+COMINcurfv3gfs+'"')
 verd_dir_list = glob.glob(COMINverf+'/verd.*')
 for verd_dir in verd_dir_list:
     verd_dir_date = verd_dir.rpartition('verd.')[2]
