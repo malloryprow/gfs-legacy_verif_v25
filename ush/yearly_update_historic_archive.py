@@ -68,11 +68,8 @@ fhr72_year_mean = round(fhr72_year_subset.mean(), 2)
 fhr72_score = str(round(100 * (1-fhr72_year_mean/70), 2))
 
 # Now write this to the yearly data archive file
-print(year_str+', '
-      +round(fhr36_score, 2)+', '
-      +round(fhr72_score, 2)+'\n')
+print(year_str+', '+fhr36_score+', '+fhr72_score+'\n')
+
 with open(yearly_data_filename, 'a') as yearly_data_file:
-    yearly_data_file.write(year_str+', '
-                           +round(fhr36_score, 2)+', '
-                           +round(fhr72_score, 2)+'\n')
+    yearly_data_file.write(year_str+', '+fhr36_score+', '+fhr72_score+'\n')
 yearly_data_file.close()
