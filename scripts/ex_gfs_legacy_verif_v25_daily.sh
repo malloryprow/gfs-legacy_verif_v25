@@ -3,6 +3,7 @@
 # Name of Script: ex_gfs_legacy_verif_v25_daily.sh 
 # Purpose of Script: This script generates daily verification
 # Log history:
+#    6/2/2026: Switch to using GFS 0p25 and regrid to 1p0
 ###############################################################################
 
 set -x

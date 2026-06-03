@@ -16,36 +16,36 @@ hpssprod_dir=/NCEPPROD/hpssprod/runhistory/rh${VDATE_YYYY}/${VDATE_YYYY}${VDATE_
 for nc in $cyc_list_GFS
 do
     # Analysis
-    anl_file=gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.1p00.anl
-    if [ -s $COMINgfs/$anl_file ]; then
-        echo "Found $COMINgfs/$anl_file"
-        cp $COMINgfs/$anl_file ${DATAcurfv3gfs_VDATE}/.
+    anl_0p25_file=${COMINgfs}/gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.0p25.anl
+    anl_1p00_file=${DATAcurfv3gfs_VDATE}/gfs.t${nc}z.pgrb2.1p00.anl
+    if [ -s $anl_0p25_file ]; then
+        echo "Found $anl_0p25_file"
+        echo "Regridding $anl_0p25_file to 1p00 at $anl_1p00_file"
+        ${USHgfs_legacy_verif_v25}/gfsregrid.sh $anl_0p25_file $anl_1p00_file
     else
-        echo "Didn't find $COMINgfs/$anl_file, try HPSS"
-        htar -xf $hpssprod_dir/com_gfs_${gfs_ver}_prod_gfs.${VDATE}_${nc}.gfs_pgrb2.tar ./$anl_file
-        mv $anl_file ${DATAcurfv3gfs_VDATE}/.
+        echo "Didn't find $anl_0p25_file, try HPSS"
+        hpss_file=gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.0p25.anl
+        htar -xf $hpssprod_dir/com_gfs_${gfs_ver}_prod_gfs.${VDATE}_${nc}.gfs_pgrb2.tar ./$hpss_file
+        echo "Regridding $hpss_file to 1p00 at $anl_1p00_file"
+        ${USHgfs_legacy_verif_v25}/gfsregrid.sh $hpss_file $anl_1p00_file
     fi
-    # Analysis index
-    anl_idx_file=gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.1p00.anl.idx
-    if [ -s $COMINgfs/$anl_idx_file ]; then
-        echo "Found $COMINgfs/$anl_idx_file"
-        cp $COMINgfs/$anl_idx_file ${DATAcurfv3gfs_VDATE}/.
-    else
-        echo "Didn't find $COMINgfs/$anl_idx_file, try HPSS"
-        htar -xf $hpssprod_dir/com_gfs_${gfs_ver}_prod_gfs.${VDATE}_${nc}.gfs_pgrb2.tar ./$anl_idx_file
-        mv $anl_idx_file ${DATAcurfv3gfs_VDATE}/.
-    fi
+    anl_1p00_idx_file=${DATAcurfv3gfs_VDATE}/gfs.t${nc}z.pgrb2.1p00.anl.idx
+    ${WGRIB2} -s $anl_1p00_file > $anl_1p00_idx_file
     # Forecast files
     for nfile in $hr_list_GFS
     do
-        fcst_file=gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.1p00.f${nfile}
-        if [ -s $COMINgfs/$fcst_file ]; then
-            echo "Found $COMINgfs/$fcst_file"
-            cp $COMINgfs/$fcst_file ${DATAcurfv3gfs_VDATE}/.
+        fcst_0p25_file=${COMINgfs}/gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.0p25.f${nfile}
+        fcst_1p00_file=${DATAcurfv3gfs_VDATE}/gfs.t${nc}z.pgrb2.1p00.f${nfile}
+        if [ -s $fcst_0p25_file ]; then
+            echo "Found $fcst_0p25_file"
+            echo "Regridding $fcst_0p25_file to 1p00 at $fcst_1p00_file"
+            ${USHgfs_legacy_verif_v25}/gfsregrid.sh $fcst_0p25_file $fcst_1p00_file
         else
-            echo "Didn't find $COMINgfs/$fcst_file, try HPSS"
-            htar -xf $hpssprod_dir/com_gfs_${gfs_ver}_prod_gfs.${VDATE}_${nc}.gfs_pgrb2.tar $fcst_file
-            mv $fcst_file ${DATAcurfv3gfs_VDATE}/.
+            echo "Didn't find $fcst_0p25_file, try HPSS"
+            hpss_file=gfs.${VDATE}/${nc}/atmos/gfs.t${nc}z.pgrb2.0p25.f${nfile}
+            htar -xf $hpssprod_dir/com_gfs_${gfs_ver}_prod_gfs.${VDATE}_${nc}.gfs_pgrb2.tar ./$hpss_file
+            echo "Regridding $hpss_file to 1p00 at $fcst_1p00_file"
+            ${USHgfs_legacy_verif_v25}/gfsregrid.sh $hpss_file $fcst_1p00_file
         fi
     done
 done
