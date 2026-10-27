@@ -58,7 +58,7 @@ do
         cp $COMINobsproc/$prepbufr_file ${DATAcurfv3gfs_VDATE}/.
     else
         echo "Didn't find $COMINobsproc/$prepbufr_file, try HPSS"
-        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${nc}.gfs.tar ./$prepbufr_file
+        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${pbuf}.gfs.tar ./$prepbufr_file
         mv $prepbufr_file ${DATAcurfv3gfs_VDATE}/.
     fi
     if [ -s ${DATAcurfv3gfs_VDATE}/gfs.t${pbuf}z.prepbufr ];then
@@ -71,7 +71,7 @@ do
         cp $COMINobsproc/$cqc_events_file ${DATAcurfv3gfs_VDATE}/.
     else
         echo "Didn't find $COMINobsproc/$cqc_events_file, try HPSS"
-        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${nc}.gfs.tar ./$cqc_events_file
+        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${pbuf}.gfs.tar ./$cqc_events_file
         mv $cqc_events_file ${DATAcurfv3gfs_VDATE}/.
     fi
     cqc_stncnt_file=gfs.${VDATE}/${pbuf}/atmos/gfs.t${pbuf}z.cqc_stncnt
@@ -80,7 +80,7 @@ do
         cp $COMINobsproc/$cqc_stncnt_file ${DATAcurfv3gfs_VDATE}/.
     else
         echo "Didn't find $COMINobsproc/$cqc_stncnt_file, try HPSS"
-        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${nc}.gfs.tar ./$cqc_stncnt_file
+        htar -xf $hpssprod_dir/com_obsproc_${obsproc_ver}_prod_gfs.${VDATE}_${pbuf}.gfs.tar ./$cqc_stncnt_file
         mv $cqc_stncnt_file ${DATAcurfv3gfs_VDATE}/.
     fi
     cqc_stnlst_file=gfs.${VDATE}/${pbuf}/atmos/gfs.t${pbuf}z.cqc_stnlst
